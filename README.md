@@ -7,7 +7,8 @@ Developer microblogging from your terminal. Publish markdown posts to [Moyn](htt
 ### Homebrew (macOS/Linux)
 
 ```bash
-brew install moyn-dev/tap/moyn
+brew tap moyn-dev/tap
+brew install moyn
 ```
 
 ### From source
