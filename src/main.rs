@@ -34,21 +34,21 @@ struct Cli {
 enum Commands {
     /// Store your API token
     Login,
-    /// Publish a markdown file as a post
+    /// <FILE> - Publish a markdown file as a post
     Publish {
         /// Path to the markdown file
         file: PathBuf,
     },
     /// List your posts
     Posts,
-    /// Delete a post by ID
+    /// <ID> - Delete a post by ID
     Delete {
         /// Post ID to delete
         id: u64,
     },
     /// List all spaces you own or are a member of
     Spaces,
-    /// Manage spaces
+    /// <COMMAND> - Manage spaces
     Space {
         #[command(subcommand)]
         command: SpaceCommands,
@@ -57,7 +57,7 @@ enum Commands {
 
 #[derive(Subcommand)]
 enum SpaceCommands {
-    /// Create a new space
+    /// --name <NAME> [--slug <SLUG>] [--description <DESC>] [--visibility public|unlisted|private] - Create a new space
     Create {
         /// Display name (required)
         #[arg(short, long)]
@@ -72,7 +72,7 @@ enum SpaceCommands {
         #[arg(short, long, default_value = "private")]
         visibility: String,
     },
-    /// Show details of a specific space
+    /// <SLUG> - Show details of a specific space
     Show {
         /// Space slug
         slug: String,
