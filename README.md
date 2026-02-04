@@ -87,6 +87,17 @@ Show space details:
 moyn space show <slug>
 ```
 
+## Releasing
+
+1. Update version in `Cargo.toml`
+2. Commit: `git commit -am "Release vX.Y.Z"`
+3. Tag and push:
+   ```bash
+   git push && git tag vX.Y.Z && git push origin vX.Y.Z
+   ```
+
+cargo-dist handles the rest (builds binaries, creates GitHub release, updates Homebrew tap).
+
 ## License
 
 MIT
