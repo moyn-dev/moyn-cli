@@ -227,7 +227,7 @@ fn login() -> Result<(), String> {
         return Err("Invalid token format. Token should start with 'moyn_'".to_string());
     }
 
-    print!("Enter API URL [http://localhost:3000]: ");
+    print!("Enter API URL [https://moyn.dev]: ");
     io::stdout().flush().unwrap();
 
     let mut url = String::new();
@@ -236,7 +236,7 @@ fn login() -> Result<(), String> {
         .map_err(|e| format!("Could not read input: {}", e))?;
     let url = url.trim();
     let url = if url.is_empty() {
-        "http://localhost:3000".to_string()
+        "https://moyn.dev".to_string()
     } else {
         url.to_string()
     };
