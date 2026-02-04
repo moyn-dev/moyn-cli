@@ -5,7 +5,26 @@ use std::io::{self, Write};
 use std::path::PathBuf;
 
 #[derive(Parser)]
-#[command(name = "moyn", about = "Developer microblogging from your terminal")]
+#[command(
+    name = "moyn",
+    version,
+    about = "Developer microblogging from your terminal",
+    long_about = "Developer microblogging from your terminal.\n\n\
+        Write locally in markdown, sync anywhere. Moyn is a CLI for publishing \
+        markdown posts to moyn.dev with support for spaces (collections) and tags.",
+    after_help = "EXAMPLES:\n    \
+        # First time setup\n    \
+        moyn login\n\n    \
+        # Publish a markdown file\n    \
+        moyn publish post.md\n\n    \
+        # List your posts\n    \
+        moyn posts\n\n    \
+        # Create a private space\n    \
+        moyn space create --name \"My Journal\"\n\n    \
+        # Publish to a space (add 'space: my-journal' to frontmatter)\n    \
+        moyn publish entry.md\n\n\
+        Learn more: https://moyn.dev"
+)]
 struct Cli {
     #[command(subcommand)]
     command: Commands,
